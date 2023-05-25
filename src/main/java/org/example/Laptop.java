@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 import java.util.HashMap;
 import java.util.Random;
 
-@Component("notebook")
-public class Notebook extends Computer{
+@Component("laptop")
+public class Laptop extends Computer{
 
     private static int myRandom(int count){
         Random random = new Random();

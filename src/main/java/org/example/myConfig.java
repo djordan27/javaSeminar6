@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Scope;
 @ComponentScan("org.example")
 public class myConfig {
     @Scope("prototype")
-    @Bean("notebook")
-    public Notebook getNotebook(){
-        return new Notebook();
+    @Bean("laptop")
+    public Laptop getLaptop(){
+        return new Laptop();
     }
 }

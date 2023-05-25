@@ -2,8 +2,6 @@ package org.example;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import javax.swing.text.html.parser.Parser;
-import java.sql.SQLOutput;
 import java.util.*;
 
 import static java.lang.Integer.parseInt;
@@ -32,15 +30,9 @@ import static java.lang.Integer.parseInt;
  * ФИ -Филиппов Игорь, группа 3730
  */
 public class App {
-//    @Override
-//    public String toString() {
-//        return "App{}"+ "\n";
-//    }
-
-
     public static void printMap(HashMap map) {
         for (int i = 1; i <= map.size(); i++) {
-            System.out.println(i + " notebook " + map.get(i));
+            System.out.println(i + " laptop " + map.get(i));
         }
     }
 
@@ -52,19 +44,12 @@ public class App {
         System.out.println("Hello World!");
         System.out.print("Введите количество отображаемых ноутбуков: ");
 
-        int numOffNotebook = scanner.nextInt();
+        int numOffLaptop = scanner.nextInt();
         HashMap map = new HashMap<>();
-        for (int i = 1; i < numOffNotebook + 1; i++) {
-//            HashMap mapLaptop = new HashMap<>();
-            Notebook notebook = context.getBean("notebook", Notebook.class);
-
-            map.put(i, notebook.getHashMap());
-//            map.put(i,context.getBean("notebook", Notebook.class));
-
+        for (int i = 1; i < numOffLaptop + 1; i++) {
+            Laptop laptop = context.getBean("laptop", Laptop.class);
+            map.put(i, laptop.getHashMap());
         }
-//        for (int i = 1; i <= map.size(); i++) {
-//            System.out.println(i + " notebook " + map.get(i));
-//        }
         printMap(map);
 
         context.close();
@@ -99,19 +84,16 @@ public class App {
                 int valueInt = parseInt(value);
                 if (valueInt <= parseInt(map.get(i).get(option))) {
                     mySortMap.put(count, map.get(i));
-                    System.out.println(i);
                     count++;
                 }
             } else if (option.equals("operating system")) {
                 if(map.get(i).get("operating system").equals(value)) {
                     mySortMap.put(count, map.get(i));
-                    System.out.println(i);
                     count++;
                 }
             } else if (option.equals("color")) {
                 if(map.get(i).get("color").equals(value)) {
                     mySortMap.put(count, map.get(i));
-                    System.out.println(i);
                     count++;
                 }
             }
@@ -155,7 +137,6 @@ public class App {
 
         }
         printMap(map);
-
         return map;
     }
 }
