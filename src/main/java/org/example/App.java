@@ -61,38 +61,40 @@ public class App {
                 chooseLaptop(map);
                 break;
             } else if (userChoose == 2) {
-               map =  sortLaptop(map);
+                map = sortLaptop(map);
 
             } else {
                 System.out.println("you entered an invalid value, please try again: ");
             }
         }
     }
-    public static void chooseLaptop (HashMap<Integer,HashMap<String,Integer>> chooseMap) {
+
+    public static void chooseLaptop(HashMap<Integer, HashMap<String, Integer>> chooseMap) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("please write the article number of the laptop: ");
         int articleNumberOfTheLaptop = scanner.nextInt();
         System.out.println("You choose laptop: ");
         System.out.println(chooseMap.get(articleNumberOfTheLaptop));
     }
-    public static HashMap <Integer,HashMap<String,String>> sortMap
-            (HashMap <Integer,HashMap<String,String>>map, String option, String value) {
-        HashMap mySortMap = new HashMap<Integer,HashMap<String,String>>();
+
+    public static HashMap<Integer, HashMap<String, String>> sortMap
+            (HashMap<Integer, HashMap<String, String>> map, String option, String value) {
+        HashMap mySortMap = new HashMap<Integer, HashMap<String, String>>();
         int count = 1;
         for (int i = 1; i <= map.size(); i++) {
-            if(option.equals("ram")||option.equals("hdd")) {
+            if (option.equals("ram") || option.equals("hdd")) {
                 int valueInt = parseInt(value);
                 if (valueInt <= parseInt(map.get(i).get(option))) {
                     mySortMap.put(count, map.get(i));
                     count++;
                 }
             } else if (option.equals("operating system")) {
-                if(map.get(i).get("operating system").equals(value)) {
+                if (map.get(i).get("operating system").equals(value)) {
                     mySortMap.put(count, map.get(i));
                     count++;
                 }
             } else if (option.equals("color")) {
-                if(map.get(i).get("color").equals(value)) {
+                if (map.get(i).get("color").equals(value)) {
                     mySortMap.put(count, map.get(i));
                     count++;
                 }
@@ -101,8 +103,9 @@ public class App {
 
         return mySortMap;
     }
-    public static HashMap<Integer,HashMap<String,String>> sortLaptop
-            (HashMap<Integer,HashMap<String,String>> sortMapOfLaptop){
+
+    public static HashMap<Integer, HashMap<String, String>> sortLaptop
+            (HashMap<Integer, HashMap<String, String>> sortMapOfLaptop) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the number that matches the required criteria"
                 + "\n1 - ram"

@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Scope;
 public class myConfig {
     @Scope("prototype")
     @Bean("laptop")
-    public Laptop getLaptop(){
+    public Laptop getLaptop() {
         return new Laptop();
     }
 }
